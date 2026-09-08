@@ -78,6 +78,20 @@ Resolution:
 - Restarted Nginx
 - Verified the website was accessible
 
+## Project Screenshots
+
+### CloudWatch CPU Monitoring
+![CloudWatch CPU Metric](screenshots/13-cloudwatch-cpu-metric.png)
+
+### High CPU Alarm Triggered
+![High CPU Alarm](screenshots/15-high-cpu-alarm-triggered.png)
+
+### Website Recovery
+![Nginx Recovery](screenshots/18-nginx-service-recovered.png)
+
+### Automated Server Health Check
+![Server Health Check](screenshots/19-server-health-script.png)
+
 ## Automation
 
 Created a Bash script:
@@ -97,6 +111,8 @@ The script checks:
 
 ```text
 aws-cloud-operations-lab/
+├── architecture/
+│   └── aws-cloud-architecture.png
 ├── scripts/
 │   └── server-health-check.sh
 ├── incidents/
