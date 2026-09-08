@@ -1,22 +1,11 @@
 # AWS Cloud Operations Lab
 
 A hands-on AWS Cloud Operations project focused on infrastructure, Linux administration, monitoring, troubleshooting, and automation.
-
 ## Architecture
 
-GitHub
-↓
-AWS Cloud Infrastructure
-↓
-VPC
-↓
-Public Subnet
-↓
-EC2 Amazon Linux 2023
-↓
-Nginx Web Server
-↓
-CloudWatch Monitoring
+![AWS Cloud Operations Architecture](architecture/aws-cloud-architecture.png)
+
+The architecture includes a public EC2 web server running Nginx, CloudWatch monitoring, CPU alarms, and SNS email notifications.
 
 ## AWS Infrastructure
 
