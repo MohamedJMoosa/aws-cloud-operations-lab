@@ -108,7 +108,6 @@ The script checks:
 
 ```text
 aws-cloud-operations-lab/
-├── infrastructure/
 ├── scripts/
 │   └── server-health-check.sh
 ├── incidents/
@@ -118,15 +117,17 @@ aws-cloud-operations-lab/
 └── README.md
 
 
-Skills Practiced
-AWS
-Linux
-Networking
-EC2
-VPC
-Nginx
-CloudWatch
-SNS
-Troubleshooting
-Bash
-GitHub
+## Skills Practiced
+
+- AWS
+- Linux
+- Networking
+- EC2
+- VPC
+- Nginx
+- CloudWatch
+- SNS
+- Troubleshooting
+- Bash
+- Git
+- GitHub
