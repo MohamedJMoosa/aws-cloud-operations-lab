@@ -115,7 +115,7 @@ aws-cloud-operations-lab/
 │   └── incident-02-website-down.md
 ├── screenshots/
 └── README.md
-
+```
 
 ## Skills Practiced
 
