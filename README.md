@@ -1,11 +1,12 @@
 # AWS Cloud Operations Lab
 
-A hands-on AWS Cloud Operations project focused on infrastructure, Linux administration, monitoring, troubleshooting, and automation.
+A hands-on AWS Cloud Operations project focused on infrastructure, Linux administration, monitoring, troubleshooting, security, and automation.
+
 ## Architecture
 
 ![AWS Cloud Operations Architecture](architecture/aws-cloud-architecture.png)
 
-The architecture includes a public EC2 web server running Nginx, CloudWatch monitoring, CPU alarms, and SNS email notifications.
+The architecture includes a public EC2 web server running Nginx, CloudWatch monitoring, CPU alarms, SNS email notifications, IAM role-based access, and Amazon S3 health report storage.
 
 ## AWS Infrastructure
 
@@ -18,6 +19,8 @@ The architecture includes a public EC2 web server running Nginx, CloudWatch moni
 - EC2 Instance: `cloud-ops-server`
 - Amazon Linux 2023
 - Nginx Web Server
+- IAM Role
+- Amazon S3
 
 ## Linux Administration
 
@@ -47,92 +50,12 @@ Configured a CloudWatch alarm:
 - Threshold: CPU > 70%
 - Notification: Amazon SNS Email Alert
 
-## Troubleshooting Incidents
+## IAM & S3
 
-### Incident 01 - High CPU
-
-Simulated high CPU utilization using a stress test.
-
-Investigation:
-- Checked CloudWatch metrics
-- Connected to EC2 via SSH
-- Checked CPU utilization
-
-Resolution:
-- Stopped the stress test
-- Verified CPU returned to normal
-
-### Incident 02 - Website Down
-
-Simulated a website outage by stopping Nginx.
-
-Investigation:
-- Verified EC2 SSH connectivity
-- Tested localhost using curl
-- Checked Nginx service status
-
-Root Cause:
-- Nginx service was stopped
-
-Resolution:
-- Restarted Nginx
-- Verified the website was accessible
-
-## Project Screenshots
-
-### CloudWatch CPU Monitoring
-![CloudWatch CPU Metric](screenshots/13-cloudwatch-cpu-metric.png)
-
-### High CPU Alarm Triggered
-![High CPU Alarm](screenshots/15-high-cpu-alarm-triggered.png)
-
-### Website Recovery
-![Nginx Recovery](screenshots/18-nginx-service-recovered.png)
-
-### Automated Server Health Check
-![Server Health Check](screenshots/19-server-health-script.png)
-
-## Automation
-
-Created a Bash script:
-
-`scripts/server-health-check.sh`
-
-The script checks:
-
-- CPU
-- Memory
-- Disk Usage
-- Uptime
-- Nginx Status
-- Website Availability
-
-## Project Structure
+- Created an EC2 IAM role: `cloud-ops-ec2-role`
+- Used IAM roles instead of storing AWS access keys on the server
+- Configured S3 access using least-privilege permissions
+- Allowed the EC2 instance to upload health reports only to:
 
 ```text
-aws-cloud-operations-lab/
-├── architecture/
-│   └── aws-cloud-architecture.png
-├── scripts/
-│   └── server-health-check.sh
-├── incidents/
-│   ├── incident-01-high-cpu.md
-│   └── incident-02-website-down.md
-├── screenshots/
-└── README.md
-```
-
-## Skills Practiced
-
-- AWS
-- Linux
-- Networking
-- EC2
-- VPC
-- Nginx
-- CloudWatch
-- SNS
-- Troubleshooting
-- Bash
-- Git
-- GitHub
+s3://cloud-ops-lab-mohamed-2026/health-reports/
